@@ -6,4 +6,4 @@ ARG UDPSPEEDER_URL="https://github.com/wangyu-/UDPspeeder/releases/download/${UD
 
 RUN wget -O speederv2.tar.gz ${UDPSPEEDER_URL} && tar -zxvf speederv2.tar.gz speederv2_amd64 -C /tmp/ && mv /tmp/speederv2_amd64 /usr/bin/speederv2 && rm -f speederv2.tar.gz
 
-CMD /usr/bin/speederv2 -s -l127.0.0.1:8388 -r127.0.0.1:29900 -k jason -f2:4 --timeout 0
+CMD /usr/bin/speederv2 -s -l127.0.0.1:8388 -r127.0.0.1:1080 -k jason -f2:4 --timeout 0
