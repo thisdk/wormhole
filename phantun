@@ -6,8 +6,8 @@ ARG PHANTUN_URL="https://github.com/dndx/phantun/releases/download/v${PHANTUN_VE
 
 RUN apk add --no-cache unzip
 
-RUN wget -O phantun.zip ${PHANTUN_URL} && unzip phantun.zip phantun_server -d /tmp/ && mv /tmp/phantun_server /usr/bin/phantun && chmod +x /usr/bin/phantun && rm -f phantun.zip
+RUN wget -O phantun.zip ${PHANTUN_URL} && unzip phantun.zip phantun_server -d /tmp/ && /tmp/phantun_server -v && mv -f /tmp/phantun_server /usr/bin/phantun && rm -f phantun.zip
 
 RUN apk del unzip
 
-CMD RUST_LOG=info phantun -l 8686 -r 127.0.0.1:51820 --tun phantun --tun-local 10.10.188.1 --tun-peer 10.10.188.2
+ENTRYPOINT ["RUST_LOG=info phantun"]
