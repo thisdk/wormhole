@@ -8,4 +8,4 @@ RUN wget -O udp2raw.tar.gz ${UDP2RAW_URL} && tar -zxvf udp2raw.tar.gz udp2raw_am
 
 RUN apk add --no-cache iptables ip6tables
 
-CMD /usr/bin/udp2raw -s -l0.0.0.0:8686 -r127.0.0.1:8388 -k jason --raw-mode icmp --cipher-mode none --auth-mode none --keep-rule -a
+CMD /usr/bin/udp2raw -s -l0.0.0.0:8686 -r127.0.0.1:8388 -k jason --raw-mode faketcp --cipher-mode none --auth-mode none --keep-rule -a
