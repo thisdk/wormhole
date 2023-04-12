@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+ARG PHANTUN_VERSION="0.6.0"
+
+ARG PHANTUN_URL="https://github.com/dndx/phantun/releases/download/v${PHANTUN_VERSION}/phantun_x86_64-unknown-linux-gnu.zip"
+
+RUN wget -O phantun.zip ${PHANTUN_URL} && unzip phantun.zip phantun_server -d /tmp/ && mv /tmp/phantun_server /usr/bin/phantun && rm -f phantun.zip
+
+CMD RUST_LOG=info phantun -l 8686 -r 127.0.0.1:51820 --tun phantun --tun-local 10.10.188.1 --tun-peer 10.10.188.2
