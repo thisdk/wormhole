@@ -6,4 +6,4 @@ ARG KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v${KCPTUN_VERS
 
 RUN wget -O kcptun.tar.gz ${KCPTUN_URL} && tar -zxvf kcptun.tar.gz server_linux_amd64 -C /tmp/ && mv /tmp/server_linux_amd64 /usr/bin/kcptun && rm -f kcptun.tar.gz
 
-CMD /usr/bin/kcptun -l 127.0.0.1:29900 -t 127.0.0.1:1080 -mode fast3 -nocomp -mtu 1350 -crypt none -sndwnd 2048 -rcvwnd 2048 -datashard 2 -parityshard 2 -dscp 46
+ENTRYPOINT ["kcptun"]
