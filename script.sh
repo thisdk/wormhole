@@ -8,11 +8,11 @@ wget https://raw.githubusercontent.com/thisdk/wormhole/main/speederv2
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/udp2raw
 
-docker build -f kcptun -t kcptun ./empty
+docker build -f kcptun -t kcptun ./empty/
 
-docker build -f speederv2 -t speederv2 ./empty
+docker build -f speederv2 -t speederv2 ./empty/
 
-docker build -f udp2raw -t udp2raw ./empty
+docker build -f udp2raw -t udp2raw ./empty/
 
 docker run --restart=always --network host --name kcptun -d kcptun -l 127.0.0.1:29900 -t 127.0.0.1:1080 -mode fast3 -nocomp -mtu 1350 -crypt none -sndwnd 2048 -rcvwnd 2048 -datashard 2 -parityshard 2 -dscp 46
 
