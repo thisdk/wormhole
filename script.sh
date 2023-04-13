@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir temp && cd temp && mkdir empty
+mkdir temp && cd temp && mkdir game
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/kcptun
 
@@ -8,11 +8,11 @@ wget https://raw.githubusercontent.com/thisdk/wormhole/main/speederv2
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/udp2raw
 
-docker build -f kcptun -t kcptun ./empty/
+docker build -f kcptun -t kcptun ./game/
 
-docker build -f speederv2 -t speederv2 ./empty/
+docker build -f speederv2 -t speederv2 ./game/
 
-docker build -f udp2raw -t udp2raw ./empty/
+docker build -f udp2raw -t udp2raw ./game/
 
 cd .. && rm -rf temp
 
