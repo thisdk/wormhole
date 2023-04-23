@@ -16,9 +16,9 @@ docker build -f udp2raw -t udp2raw ./game/
 
 cd .. && rm -rf temp
 
-docker run --restart=always --network bridge --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -d containrrr/watchtower --cleanup
+docker run --restart=always --network host --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -d containrrr/watchtower --cleanup
 
-docker run --restart=always --network bridge --name freenom -v /etc/freenom:/conf -v /etc/freenom/logs:/app/logs -d luolongfei/freenom
+docker run --restart=always --network host --name freenom -v /etc/freenom:/conf -v /etc/freenom/logs:/app/logs -d luolongfei/freenom
 
 docker run --restart=always --network host --name nginx -v /etc/nginx/nginx.conf:/etc/nginx/nginx.conf -d nginx
 
