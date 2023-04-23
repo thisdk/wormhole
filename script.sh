@@ -26,9 +26,9 @@ docker run --restart=always --network bridge --name sing-box -v /etc/sing-box:/e
 
 docker run --restart=always --network bridge --name kcptun -d kcptun -l 0.0.0.0:3866 -t sing-box:1080 -mode fast3 -nocomp -mtu 1350 -crypt none -sndwnd 2048 -rcvwnd 2048 -datashard 2 -parityshard 2 -dscp 46
 
-docker run --restart=always --network bridge --name speederv2 -d speederv2 -s -l0.0.0.0:3866 -r sing-box:1080 -k jason -f2:4 --timeout 0
+docker run --restart=always --network bridge --name speederv2 -d speederv2 -s -l 0.0.0.0:3866 -r sing-box:1080 -k jason -f2:4 --timeout 0
 
-docker run --restart=always --network bridge --name udp2raw_kcp -p 8585:3866 --cap-add NET_ADMIN -d udp2raw -s -l0.0.0.0:3866 -r kcptun:3866 -k jason --raw-mode faketcp --cipher-mode none --auth-mode none --keep-rule -a
+docker run --restart=always --network bridge --name udp2raw_kcp -p 8585:3866 --cap-add NET_ADMIN -d udp2raw -s -l 0.0.0.0:3866 -r kcptun:3866 -k jason --raw-mode faketcp --cipher-mode none --auth-mode none --keep-rule -a
 
-docker run --restart=always --network bridge --name udp2raw_udp -p 8686:3866 --cap-add NET_ADMIN -d udp2raw -s -l0.0.0.0:3866 -r speederv2:3866 -k jason --raw-mode faketcp --cipher-mode none --auth-mode none --keep-rule -a
+docker run --restart=always --network bridge --name udp2raw_udp -p 8686:3866 --cap-add NET_ADMIN -d udp2raw -s -l 0.0.0.0:3866 -r speederv2:3866 -k jason --raw-mode faketcp --cipher-mode none --auth-mode none --keep-rule -a
 
