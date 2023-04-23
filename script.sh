@@ -20,6 +20,8 @@ docker run --restart=always --network bridge --name watchtower -v /var/run/docke
 
 docker run --restart=always --network bridge --name freenom -v /etc/freenom:/conf -v /etc/freenom/logs:/app/logs -d luolongfei/freenom
 
+docker run --restart=always --network host --name nginx -v /etc/nginx/nginx.conf:/etc/nginx/nginx.conf -d nginx
+
 docker run --restart=always --network host --name sing-box -v /etc/sing-box:/etc/sing-box -d ghcr.io/sagernet/sing-box run -c /etc/sing-box/config.json
 
 docker run --restart=always --network host --name kcptun -d kcptun -l 127.0.0.1:29900 -t 127.0.0.1:1080 -mode fast3 -nocomp -mtu 1350 -crypt none -sndwnd 2048 -rcvwnd 2048 -datashard 2 -parityshard 2 -dscp 46
