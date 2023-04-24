@@ -12,13 +12,17 @@ echo "net.core.default_qdisc=fq" >> /etc/sysctl.d/80-bbr.conf
 
 echo "net.ipv4.ip_forward=1" >> /etc/sysctl.d/30-ipforward.conf
 
-cho "set mouse-=a" > ~/.vimrc
+echo "net.ipv6.conf.default.forwarding=1" >> /etc/sysctl.d/30-ipforward.conf
 
-mkdir /etc/sing-box
+echo "net.ipv6.conf.all.forwarding=1" >> /etc/sysctl.d/30-ipforward.conf
+
+cho "set mouse-=a" > ~/.vimrc
 
 mkdir /etc/docker
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/daemon.json -O /etc/docker/daemon.json
+
+mkdir /etc/sing-box
 
 pacman -Syyu --noconfirm
 
