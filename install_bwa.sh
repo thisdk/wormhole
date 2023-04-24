@@ -1,5 +1,31 @@
 #!/bin/bash
 
+hostnamectl set-hostname archlinux
+
+modprobe tcp_bbr
+
+echo "tcp_bbr" > /etc/modules-load.d/80-bbr.conf
+
+echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.d/80-bbr.conf
+
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.d/80-bbr.conf
+
+echo "net.ipv4.ip_forward=1" >> /etc/sysctl.d/30-ipforward.conf
+
+cho "set mouse-=a" > ~/.vimrc
+
+mkdir /etc/sing-box
+
+mkdir /etc/freenom
+
+mkdir /etc/freenom/logs
+
+pacman -Syyu --noconfirm
+
+pacman -S --noconfirm base-devel docker wget vim
+
+systemctl enable --now docker
+
 mkdir temp && cd temp && mkdir game
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/kcptun
@@ -17,6 +43,8 @@ docker build -f udp2raw -t udp2raw ./game/
 cd .. && rm -rf temp
 
 docker run --restart=always --network bridge --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -d containrrr/watchtower --cleanup
+
+docker run --restart=always --network bridge --name freenom -v /etc/freenom:/conf -v /etc/freenom/logs:/app/logs -d luolongfei/freenom
 
 docker run --restart=always --network host --name sing-box -v /etc/sing-box:/etc/sing-box -d ghcr.io/sagernet/sing-box run -c /etc/sing-box/config.json
 
