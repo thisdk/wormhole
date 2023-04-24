@@ -22,7 +22,7 @@ wget https://raw.githubusercontent.com/thisdk/wormhole/main/daemon.json -O /etc/
 
 pacman -Syyu --noconfirm
 
-pacman -S --noconfirm base-devel docker wget vim
+pacman -S --noconfirm base-devel docker vim
 
 systemctl enable --now docker
 
