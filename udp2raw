@@ -4,7 +4,7 @@ ARG UDP2RAW_VERSION="20230206.0"
 
 ARG UDP2RAW_URL="https://github.com/wangyu-/udp2raw/releases/download/${UDP2RAW_VERSION}/udp2raw_binaries.tar.gz"
 
-RUN wget -O udp2raw.tar.gz ${UDP2RAW_URL} && tar -zxvf udp2raw.tar.gz udp2raw_amd64 -C /tmp/ && mv /tmp/udp2raw_amd64 /usr/bin/udp2raw && rm -f udp2raw.tar.gz
+RUN wget -O udp2raw.tar.gz ${UDP2RAW_URL} && tar -zxvf udp2raw.tar.gz udp2raw_amd64_hw_aes -C /tmp/ && mv /tmp/udp2raw_amd64_hw_aes /usr/bin/udp2raw && rm -f udp2raw.tar.gz
 
 RUN apk add --no-cache iptables ip6tables
 
