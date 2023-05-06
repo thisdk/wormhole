@@ -26,7 +26,7 @@ mkdir /etc/sing-box
 
 pacman -Syyu --noconfirm
 
-pacman -S --noconfirm base-devel docker vim
+pacman -S --noconfirm base-devel docker vim wireguard-tools openresolv
 
 systemctl enable --now docker
 
