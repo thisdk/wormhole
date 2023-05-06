@@ -20,7 +20,7 @@ systemctl enable --now docker
 
 mkdir temp && cd temp && mkdir game
 
-wget https://raw.githubusercontent.com/thisdk/wormhole/main/kcptun
+wget https://raw.githubusercontent.com/thisdk/wormhole/main/kcptun_client -O kcptun
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/speederv2
 
