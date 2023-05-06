@@ -1,0 +1,9 @@
+FROM alpine:latest
+
+ARG KCPTUN_VERSION="20230214"
+
+ARG KCPTUN_URL="https://github.com/xtaci/kcptun/releases/download/v${KCPTUN_VERSION}/kcptun-linux-amd64-${KCPTUN_VERSION}.tar.gz"
+
+RUN wget -O kcptun.tar.gz ${KCPTUN_URL} && tar -zxvf kcptun.tar.gz client_linux_amd64 -C /tmp/ && mv /tmp/client_linux_amd64 /usr/bin/kcptun && rm -f kcptun.tar.gz
+
+ENTRYPOINT ["kcptun"]
