@@ -38,7 +38,7 @@ docker run --restart=always --network bridge --name watchtower -v /var/run/docke
 
 docker run --restart=always --network host --name sing-box -v /etc/sing-box:/etc/sing-box -d ghcr.io/sagernet/sing-box run -c /etc/sing-box/config.json
 
-docker run --restart=always --network host --name udp2raw --cap-add NET_ADMIN -d udp2raw -s -l0.0.0.0:8585 -r127.0.0.1:8500 -k jason --raw-mode faketcp --cipher-mode none --auth-mode none --keep-rule -a
+docker run --restart=always --network host --name udp2raw --cap-add NET_ADMIN -d udp2raw -s -l0.0.0.0:8585 -r127.0.0.1:8500 -k jason --raw-mode faketcp --cipher-mode xor --auth-mode simple -a
 
 docker run --restart=always --network host --name speederv2 -d speederv2 -s -l127.0.0.1:8500 -r127.0.0.1:8400 -k jason -f2:4 --timeout 0
 
