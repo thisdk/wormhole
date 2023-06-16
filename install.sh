@@ -16,8 +16,6 @@ echo "net.ipv6.conf.default.forwarding=1" >> /etc/sysctl.d/30-ipforward.conf
 
 echo "net.ipv6.conf.all.forwarding=1" >> /etc/sysctl.d/30-ipforward.conf
 
-cho "set mouse-=a" > ~/.vimrc
-
 mkdir /etc/docker
 
 wget https://raw.githubusercontent.com/thisdk/wormhole/main/daemon.json -O /etc/docker/daemon.json
@@ -30,4 +28,4 @@ pacman -S --noconfirm base-devel docker
 
 systemctl enable --now docker
 
-vim /etc/netctl/eth0
+vim /etc/sing-box/config.json
