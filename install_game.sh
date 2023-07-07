@@ -32,7 +32,7 @@ cd .. && rm -rf temp
 
 docker run --restart=always --network bridge --name watchtower -v /var/run/docker.sock:/var/run/docker.sock -d containrrr/watchtower --cleanup
 
-docker run --restart=always --network host --name sing-box -v /etc/sing-box:/etc/sing-box -d ghcr.io/sagernet/sing-box run -c /etc/sing-box/config.json
+docker run --restart=always --network host --name sing-box -v /etc/sing-box:/etc/sing-box -d gzxhwq/sing-box
 
 docker run --restart=always --network host --name udp2raw --cap-add NET_ADMIN -d udp2raw -s -l0.0.0.0:8585 -r127.0.0.1:8400 -k jason --raw-mode faketcp --cipher-mode aes128cbc --auth-mode md5 -a
 
